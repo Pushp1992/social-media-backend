@@ -1,4 +1,15 @@
 
+### Backend service for Social Media
+
+1. API endpoint for User Profile. (GET/PUT/POST/DELETE)
+2. API endpoint for User Post(s). (GET/PUT/POST/DELETE)
+
+### Running backend srvice locally
+
+```
+npm run dev
+```
+The server will start at http://localhost:5000/
 ### Pre-requisites
 
 1. install brew

@@ -1,4 +1,4 @@
-// all HTTP method (GET/PUT/POST/DELETE) route endpoint will be present here
+// all HTTP method (GET/PUT/POST/DELETE) route endpoint for user profile will be present here
 
 module.exports = (app) => {
 
