@@ -1,7 +1,7 @@
 
 const UserProfileModel = require('../model/user-profile-model');
 
-// create user profile goes here
+// Create user profile
 exports.createUserProfile = async (req, res) => {
     const REQUEST_BODY = req.body;
 
@@ -13,7 +13,6 @@ exports.createUserProfile = async (req, res) => {
         });
     }
 
-    // create profile function
     createProfile(REQUEST_BODY, res);
 };
 
@@ -107,7 +106,7 @@ exports.getUserProfile = async (req, res) => {
     await UserProfileModel.find()
         .then(data => {
             // validation
-            try {  
+            try {
                 if (!data || !data.length) {
                     return res.status(204).send({
                         data: data || {},
@@ -135,6 +134,74 @@ exports.getUserProfile = async (req, res) => {
         })
 };
 
+// Update user profile by Id
+exports.updateUserProfileById = async (req, res) => {
+    const REQUEST_BODY = req.body;
+    const profile_id = req.params.id;
+
+    // validate request
+    if (!req.body.email || !req.body.id) {
+        return res.status(400).send({
+            message: `Please make sure email and ID field are not empty`
+        })
+    }
+
+    const {
+        id,
+        name,
+        email,
+        image_url,
+        gender,
+        age,
+        DOB,
+        location,
+        mobile,
+        user_name,
+        profile_creation_date
+    } = REQUEST_BODY;
+
+    // find profile and update it
+    UserProfileModel.findByIdAndUpdate(profile_id, {
+
+        _id: id,
+        name: name,
+        email: email,
+        image_url: image_url,
+        gender: gender,
+        age: age,
+        DOB: DOB,
+        location: location,
+        mobile: mobile,
+        user_name: user_name,
+        profile_creation_date: profile_creation_date
+    },
+        { new: true })
+        .then(data => {
+            if (!data) {
+                return res.status(404).send({
+                    code: res.statusCode,
+                    message: `profile with ID: ${profile_id} is not found in DB`
+                })
+            }
+
+            res.status(200).send({
+                code: res.statusCode,
+                message: `User profile with ID: ${profile_id} updated successfully!`,
+                data: data
+            })
+        }).catch(err => {
+            if (err.kind === 'ObjectId') {
+                return res.status(404).send({
+                    message: "Profile not found with id " + profile_id
+                });
+            }
+
+            return res.status(500).send({
+                message: "Error updating Profile with id " + profile_id
+            });
+        })
+};
+
 // Delete user profile
 exports.deleteUserProfileById = async (req, res) => {
     const ID = req.params.id;
@@ -159,3 +226,17 @@ exports.deleteUserProfileById = async (req, res) => {
 };
 
 // Delete all user profile
+exports.deleteUserProfile = async (req, res) => {
+    UserProfileModel.remove()
+        .then(() => {
+            return res.status(200).send({
+                code: res.statusCode,
+                message: `User Profile list deleted successfully!`
+            })
+        }).catch(err => {
+            return res.status(500).send({
+                code: res.statusCode,
+                message: `${err.message} || unable to delete user profile. ID - ${ID}`
+            })
+        })
+};

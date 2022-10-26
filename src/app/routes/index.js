@@ -15,7 +15,11 @@ module.exports = (app) => {
     app.get('/get-profile/:id', UserProfileController.getUserProfileById);
 
     // api endpoint to update user profile
+    app.put('/update-profile/:id', UserProfileController.updateUserProfileById);
 
     // api endpoint to delete user profile
     app.delete('/delete-profile/:id', UserProfileController.deleteUserProfileById);
+
+    // api endpoint to delete all user profiles
+    app.delete('/delete-profile', UserProfileController.deleteUserProfile)
 }
