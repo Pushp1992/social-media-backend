@@ -1,4 +1,4 @@
-// Social media model structure
+// Social media Profile schema structure
 
 const mongoose = require('mongoose');
 

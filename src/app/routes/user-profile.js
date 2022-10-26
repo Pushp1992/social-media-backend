@@ -21,5 +21,5 @@ module.exports = (app) => {
     app.delete('/delete-profile/:id', UserProfileController.deleteUserProfileById);
 
     // api endpoint to delete all user profiles
-    app.delete('/delete-profile', UserProfileController.deleteUserProfile)
+    app.delete('/delete-profile', UserProfileController.deleteUserProfile);
 }

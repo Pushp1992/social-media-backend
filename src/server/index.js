@@ -29,7 +29,8 @@ app.get('/', (req, res) => {
 });
 
 // import API routes
-require('../app/routes')(app);
+require('../app/routes/user-profile')(app);
+require('../app/routes/user-post')(app);
 
 app.listen(PORT, hostname, () => {
     console.log(`server is listening to http://${hostname}:${PORT}`);

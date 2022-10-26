@@ -202,7 +202,7 @@ exports.updateUserProfileById = async (req, res) => {
         })
 };
 
-// Delete user profile
+// Delete user profile by ID
 exports.deleteUserProfileById = async (req, res) => {
     const ID = req.params.id;
 
