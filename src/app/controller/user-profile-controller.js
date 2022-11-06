@@ -27,7 +27,6 @@ const createProfile = async (data, res) => {
         DOB,
         location,
         mobile,
-        user_name,
         profile_creation_date
     } = data;
 
@@ -42,7 +41,6 @@ const createProfile = async (data, res) => {
         DOB: DOB,
         location: location,
         mobile: mobile,
-        user_name: user_name,
         profile_creation_date: profile_creation_date
     });
 
@@ -119,7 +117,7 @@ exports.getUserProfile = async (req, res) => {
                     count: data.length,
                     code: res.statusCode,
                     message: 'profile list fetched successfully',
-                    data: [data]
+                    data: data
                 })
             } catch (err) {
                 return res.status(404).send({
@@ -156,7 +154,6 @@ exports.updateUserProfileById = async (req, res) => {
         DOB,
         location,
         mobile,
-        user_name,
         profile_creation_date
     } = REQUEST_BODY;
 
@@ -172,7 +169,6 @@ exports.updateUserProfileById = async (req, res) => {
         DOB: DOB,
         location: location,
         mobile: mobile,
-        user_name: user_name,
         profile_creation_date: profile_creation_date
     },
         { new: true })

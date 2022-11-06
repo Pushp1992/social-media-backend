@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const UserPostSchema = mongoose.Schema(
     {
         _id: String,
+        image_url: String,
         content: String,
         email: String,
         created_by: String,

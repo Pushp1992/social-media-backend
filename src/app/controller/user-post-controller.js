@@ -20,6 +20,7 @@ const createPost = async (data, res) => {
     const {
         id,
         content,
+        image_url,
         email,
         created_by,
         creation_date,
@@ -29,6 +30,7 @@ const createPost = async (data, res) => {
     const post = new UserPostModel({
         _id: id,
         content: content,
+        image_url: image_url,
         email: email,
         created_by: created_by,
         creation_date: creation_date,
@@ -55,6 +57,9 @@ const createPost = async (data, res) => {
 // Fetch all Posts
 exports.getPost = async (req, res) => {
     // Make sure to give proper API response when trying to fetch empty post list.
+
+    // TO-DO: Logic to get all post using query params
+    console.log(req.query);
 
     await UserPostModel.find()
         .then(data => {
@@ -139,6 +144,7 @@ exports.updatePostById = async (req, res) => {
     const {
         id,
         content,
+        image_url,
         email,
         created_by,
         creation_date,
@@ -149,6 +155,7 @@ exports.updatePostById = async (req, res) => {
     UserPostModel.findByIdAndUpdate(post_id, {
         _id: id,
         content: content,
+        image_url: image_url,
         email: email,
         created_by: created_by,
         creation_date: creation_date,
