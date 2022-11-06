@@ -13,6 +13,7 @@ const UserProfileSchema = mongoose.Schema(
         DOB: String,
         location: String,
         mobile: Number,
+        bio: String,
         profile_creation_date: String
     },
     { timeStamps: true }

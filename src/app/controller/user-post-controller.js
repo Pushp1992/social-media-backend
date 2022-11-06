@@ -77,7 +77,7 @@ exports.getPost = async (req, res) => {
                     count: data.length,
                     code: res.statusCode,
                     message: 'post list fetched successfully',
-                    data: [data]
+                    data: data
                 })
             } catch (err) {
                 return res.status(404).send({

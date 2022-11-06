@@ -27,6 +27,7 @@ const createProfile = async (data, res) => {
         DOB,
         location,
         mobile,
+        bio,
         profile_creation_date
     } = data;
 
@@ -41,6 +42,7 @@ const createProfile = async (data, res) => {
         DOB: DOB,
         location: location,
         mobile: mobile,
+        bio: bio,
         profile_creation_date: profile_creation_date
     });
 
@@ -154,6 +156,7 @@ exports.updateUserProfileById = async (req, res) => {
         DOB,
         location,
         mobile,
+        bio,
         profile_creation_date
     } = REQUEST_BODY;
 
@@ -169,6 +172,7 @@ exports.updateUserProfileById = async (req, res) => {
         DOB: DOB,
         location: location,
         mobile: mobile,
+        bio: bio,
         profile_creation_date: profile_creation_date
     },
         { new: true })
