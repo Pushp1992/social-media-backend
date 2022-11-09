@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 
 const UserProfileSchema = mongoose.Schema(
     {
-        _id: String,
+        _id: Number,
         name: String,
         email: String,
         image_url: String,
@@ -12,7 +12,7 @@ const UserProfileSchema = mongoose.Schema(
         age: Number,
         DOB: String,
         location: String,
-        mobile: Number,
+        mobile: String,
         bio: String,
         profile_creation_date: String
     },
