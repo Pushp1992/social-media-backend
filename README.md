@@ -31,3 +31,19 @@ Please follow this link as well: https://www.mongodb.com/docs/v4.4/tutorial/inst
 
 ### If above check passes, pls stop the server
 5. brew services stop mongodb-community@4.4
+
+
+
+
+
+Backend deploymermt
+
+
+- node
+- mongo
+- JS
+
+
+Ntlify
+Heroku
+MongoDB Atlas ()
