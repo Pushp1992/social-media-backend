@@ -4,7 +4,7 @@
   "description": "Social media backend service",
   "main": "src/index.js",
   "scripts": {
-    "dev": "run-s restart-db server",
+    "start": "run-s restart-db server",
     "server": "nodemon src/server",
     "restart-db": "brew services restart mongodb-community@4.4",
     "start-db": "brew services start mongodb-community@4.4",
